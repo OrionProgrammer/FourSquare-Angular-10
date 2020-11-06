@@ -1,0 +1,30 @@
+<h1>Search Landmarks</h1>
+
+<form [formGroup]="form" (ngSubmit)="ngOnSubmit()">
+    <div class="form-row">
+        <div class="form-group col">
+            <input type="text" formControlName="location" class="form-control" />
+        </div>
+        <div class="form-group col">
+            <button class="btn btn-primary">
+				Search
+			</button>
+        </div>
+    </div>
+</form>
+
+
+<div class="card-columns">
+    <div class="card" *ngFor="let item of landmarksArr">
+      <img class="card-img-top" src="data:image/jpg;base64,{{item?.image}}" alt="{{item?.venueName}}">
+      <div class="card-body">
+        <h5 class="card-title">{{item?.venueName}}</h5>
+        <p class="card-text">
+          <i>Image by {{item?.imageCredit}}</i>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+<span *ngIf="processing" class="spinner-border spinner-border-sm"></span>

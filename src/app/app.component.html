@@ -1,0 +1,15 @@
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="navbar-nav">
+      <a class="nav-item nav-link" *ngIf="user" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a class="nav-item nav-link" routerLink="/landmarks" routerLinkActive="active">Landmarks</a>
+      <a class="nav-item nav-link" *ngIf="user" (click)="logout()">Logout</a>
+      <a class="nav-item nav-link" *ngIf="!user" routerLink="/accounts/login">Login</a>
+  </div>
+</nav>
+
+<!-- main app container -->
+<div class="app-container">
+  <alert></alert>
+  <router-outlet></router-outlet>
+</div>
