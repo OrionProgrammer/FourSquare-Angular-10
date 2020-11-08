@@ -11,7 +11,7 @@ export class LandmarkService {
         private http: HttpClient
     ) { }
 
-    search(location: String) {
-        return this.http.get<Landmark[]>(`${environment.apiUrl}/landmarks/search/landmark/${location}`);
+    search(location: String, userid: number) {
+        return this.http.get<Landmark[]>(`${environment.apiUrl}/landmarks/search/landmark/${location}/${userid}`);
     }
 }
