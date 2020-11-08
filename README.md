@@ -1,27 +1,22 @@
-# FourSquareAngular10
+# Features
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
+1. Angular 10
+2. SignalR for fast retrieval of images
+3. Connects to .Net Core API
+4. Search for landmarks with FourSquare
+5. User registration and login
+6. Searches saved for logged in user
 
-## Development server
+# How to run the project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Before executing the following steps. Make sure you have the Database and .Net Core API running. API and database can be found here > https://github.com/OrionProgrammer/FourSquare-.Net-Core-API
 
-## Code scaffolding
+1. Clone te project to your local machine
+2. Open the project in Visual Studio Code
+3. Open a new Terminal
+4. Type 'ng serve'
+5. After the project has compiled, open your browser and browse http://localhost:4200/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Note: Your API must be running on the following Url: http://localhost:4000. To Change your API Url, update the apiUrl in environments/environments.ts 
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
