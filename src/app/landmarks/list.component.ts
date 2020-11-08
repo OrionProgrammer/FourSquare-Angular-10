@@ -4,7 +4,8 @@ import { Subscription } from 'rxjs';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LandmarkService, LandmarkSignalRService } from '../_services';
-import { Landmark } from '../_models';
+import { Landmark, User } from '../_models';
+import { AccountService } from '../_services';
 
 @Component({
   templateUrl: './list.component.html'
@@ -15,11 +16,16 @@ export class ListComponent implements OnInit, OnDestroy {
   landmarkSubscription: Subscription;
   l: Landmark;
   processing: boolean = false;
+  user: User;
 
   constructor(
     private formBuilder: FormBuilder,
     private landmarkService: LandmarkService,
-    public landmarkSignalRService: LandmarkSignalRService) { }
+    public landmarkSignalRService: LandmarkSignalRService,
+    private accountService: AccountService) 
+    {
+       this.user = this.accountService.userValue;
+     }
 
 
   ngOnInit(): void {
@@ -50,8 +56,11 @@ export class ListComponent implements OnInit, OnDestroy {
     this.landmarksArr = [];
 
     let location = this.form.get('location').value;
+    let userid = 0;
+    if(this.user)
+      userid = parseInt(this.user.id);
 
-    this.landmarkService.search(location)
+    this.landmarkService.search(location, userid)
       .pipe(first())
       .subscribe();
   }
